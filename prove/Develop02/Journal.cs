@@ -1,55 +1,54 @@
 public class Journal 
 {
-    public List<Entry>  _entries = new List<Entry>();
+    public List<Entry> _entries = [];
 
     public void AddEntry(Entry newEntry)
     {
         _entries.Add(newEntry);
     }
 
-    public void DisplayAll()
+    public void DisplayAll() 
     {
-        foreach (Entry promp in _entries) 
+        foreach (Entry entry in _entries)
         {
-            promp.Display();
+            entry.Display();
         }
     }
 
-    public void SaveToFile(List<Entry> _entries) 
-    
+    public void SaveToFile(string file)
     {
-        Console.WriteLine("What is the filename? ");
-        string filename = Console.ReadLine();
-        using (StreamWriter outputFile = new StreamWriter(filename)) 
+        using (StreamWriter outputFile = new StreamWriter(file))
         {
-           foreach (Entry p in _entries) 
-           {
-
-                outputFile.WriteLine($"{p._date},{p._promptText},{p._entryText}");
-           }
-           
-          
+            foreach (Entry entry in _entries)
+            {
+                outputFile.WriteLine($"{entry._date}|{entry._dayOfWeek}|{entry._promptText}|{entry._entryText}");
+            }
         }
     }
 
-    public List<Entry> LoadFromFile(string file)
+    public void LoadFromFile(string file)
     {
-       string[] lines = System.IO.File.ReadAllLines(file);
-       List<Entry> newData = new List<Entry>();
+        // Replace any entries currently stored in the journal
+        _entries = [];
 
-       foreach (string line in lines)
-       {
-            string[] parts = line.Split(",");
+        // Read from file
+        string[] lines = System.IO.File.ReadAllLines(file);
 
-            Entry data = new Entry();
-            data._date = parts[0];
-            data._promptText = parts[1];
-            data._entryText = parts[2];
+        // Iterate through file lines
+        foreach (string line in lines) 
+        {
+            // Split line into parts
+            string[] parts = line.Split("|");
 
-           
-            newData.Add(data); 
-       }
+            // Create new entry to store the parts
+            Entry entry = new Entry();
+            entry._date = parts[0];
+            entry._dayOfWeek = parts[1];
+            entry._promptText = parts[2];
+            entry._entryText = parts[3];
 
-       return newData;
+            // Add entry to journal
+            _entries.Add(entry);
+        }
     }
 }
