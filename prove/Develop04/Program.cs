@@ -1,5 +1,5 @@
 /*
-I showed extra creativity by adding a new feature that keeps track of the total time spend in each activity and displays
+I showed extra creativity by adding a new feature that keeps track of the total time spent in each activity and displays
         that number at the end of each activity.
 */
 using System;
