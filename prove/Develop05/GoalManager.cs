@@ -174,7 +174,6 @@ public class GoalManager
             string goalType = goalParts[0];
             string goalInfo = goalParts[1];
 
-
             if (goalType == "SimpleGoal")
             {
                 string[] goalInfoParts = goalInfo.Split(",");
