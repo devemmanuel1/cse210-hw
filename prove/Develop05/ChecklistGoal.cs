@@ -23,7 +23,7 @@ public class ChecklistGoal : Goal
         {
             return _points + _bonus;
         }
-        else 
+        else
         {
             return _points;
         }
@@ -35,7 +35,7 @@ public class ChecklistGoal : Goal
         {
             return true;
         }
-        else 
+        else
         {
             return false;
         }
@@ -47,7 +47,7 @@ public class ChecklistGoal : Goal
         {
             return $"[X] {_shortName} ({_description}) -- Currently completed: {_amountCompleted}/{_target}";
         }
-        else 
+        else
         {
             return $"[ ] {_shortName} ({_description}) -- Currently completed: {_amountCompleted}/{_target}";
         }

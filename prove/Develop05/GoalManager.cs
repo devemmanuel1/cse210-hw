@@ -133,7 +133,7 @@ public class GoalManager
         ListGoalNames();
         Console.Write("Which goal did you accomplish? ");
         int userInput = int.Parse(Console.ReadLine());
-        
+
         int earnedPoints = _goals.ElementAt(userInput - 1).RecordEvent();
         _score += earnedPoints;
         Console.WriteLine($"Congratulation! You have earned {earnedPoints} points!");
@@ -185,7 +185,7 @@ public class GoalManager
 
                 SimpleGoal simpleGoal = new SimpleGoal(goalName, goalDescription, goalPoints);
 
-                if (goalComplete == "True") 
+                if (goalComplete == "True")
                 {
                     simpleGoal.SetIsComplete(true);
                 }
