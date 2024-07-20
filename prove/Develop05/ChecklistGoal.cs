@@ -10,7 +10,6 @@ public class ChecklistGoal : Goal
         _target = target;
         _bonus = bonus;
     }
-
     public void SetAmountCompleted(int amountCompleted)
     {
         _amountCompleted = amountCompleted;
